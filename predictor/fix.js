@@ -11,7 +11,7 @@ class FixPredictor extends Predictor {
     }
 
     predict(input) {
-        if (!this.ready()) {
+        if (!this.ready) {
             throw new Error("Predictor not ready");
         }
         return {

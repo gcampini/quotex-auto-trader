@@ -6,7 +6,7 @@ const Predictor = require('./predictor');
 class TrendPredictor extends Predictor {
 
     predict(input) {
-        if (!this.ready()) {
+        if (!this.ready) {
             throw new Error("Predictor not ready");
         }
         const {bets} = input.past;
@@ -15,7 +15,6 @@ class TrendPredictor extends Predictor {
             if (bets[0].state === "win") prediction = bets[0].bet;
             else prediction = bets[0].bet === "down" ? "up" : "down";
         }
-        console.log(this.getInvestmentLevel(input.past.bets))
         return {
             investment: this.investments[this.getInvestmentLevel(input.past.bets)].roundedInvestment,
             prediction,

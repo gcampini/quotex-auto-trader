@@ -107,7 +107,7 @@ class Predictor {
     }
 
     get ready() {
-        return !!this.investments;
+        return this.investments.length > 0;
     }
 
 }

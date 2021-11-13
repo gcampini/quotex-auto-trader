@@ -37,16 +37,8 @@ const SimplePredictor = require('./predictor/trend');
     let predicting = false;
 
     scraper.listen('bets', async bets => {
-        if (bets.length === 0) {
-            function onTimeChanged(time) {
-                const date = new Date(time);
-                if (date.getSeconds() === 0) {
-                    predictor.predict();
-                    scraper.unlisten('time', onTimeChanged);
-                }
-            }
-            scraper.listen('time', onTimeChanged);
-        }
+        if (!predictor.ready) return;
+        // TODO gérer le cas où il y a aucun pari dans l'historique
         const mostRecentBet = bets[0];
         // The bet has been placed
         if (!mostRecentBet.finished && predicting) {
