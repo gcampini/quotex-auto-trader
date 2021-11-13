@@ -1,0 +1,15 @@
+{
+  "name": "quotex-auto-trader",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "puppeteer-core": "^10.4.0"
+  }
+}
